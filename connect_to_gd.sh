@@ -40,13 +40,3 @@ else
 		 -id "${CLIENT_ID}.apps.googleusercontent.com" \
 		 -secret "${CLIENT_SECRET}"
 	fi
-
-	# Init restic if does not exists
-  if [ -z "$(restic -r $TO_PATH cat config)" ] 2>/dev/null; then
-    restic -r $TO_PATH init
-  fi
-
-  # Sweet Sweet Backup
-  restic -r $TO_PATH backup $FROM_PATH
-  restic -r $TO_PATH forget --keep-last $KEEP_LAST --prune
-fi

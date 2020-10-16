@@ -12,7 +12,7 @@ and I stole some parts from [Jakob Kofad's blog post](https://jakobkofod.com/aut
 # How To
 1. [Follow this and generate 2 verification codes for from GD and to GD](https://github.com/astrada/google-drive-ocamlfuse/wiki/Headless-Usage-&-Authorization)
 2. `docker build -t gd2gd .`
-3. Run following command or use `docker-compose up`
+3. Run following command
     ```shell script
     docker run \
       -v /$LOCATION_TO_HOLD_AUTH_TOKENS:/root/.gdfuse \
