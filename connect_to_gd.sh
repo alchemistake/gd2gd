@@ -40,3 +40,4 @@ else
 		 -id "${CLIENT_ID}.apps.googleusercontent.com" \
 		 -secret "${CLIENT_SECRET}"
 	fi
+fi
