@@ -4,6 +4,7 @@ MAINTAINER alchemistake <alchemistake@gmail.com>
 ENV FROM_PATH="/mnt/from"
 ENV TO_PATH="/mnt/to"
 ENV KEEP_LAST=30
+ENV RESTIC_REPOSITORY=$TO_PATH
 
 RUN  apt-get update \
  && apt-get install -yy gnupg wget\
@@ -21,6 +22,7 @@ RUN wget https://github.com/restic/restic/releases/download/v0.9.1/restic_0.9.1_
     && cp restic* /usr/local/bin/restic \
     && chmod a+x /usr/local/bin/restic
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY restic_backup.sh /usr/local/bin/
+COPY connect_to_gd.sh /usr/local/bin/
 
-CMD ["docker-entrypoint.sh"]
+CMD ["restic_backup.sh"]
